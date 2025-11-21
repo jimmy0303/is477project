@@ -1,0 +1,27 @@
+rule all:
+    input:
+        "data/processed/integrated_data.csv"
+
+# Acquire data (manually downloaded for now)
+rule prepare_egrid:
+    input: "data/raw/egrid_2023/egrid.csv"
+    output: "data/interim/egrid_clean.csv"
+    shell: "cp {input} {output}"
+
+rule prepare_eia:
+    input: "data/raw/eia860_2024/eia860.csv"
+    output: "data/interim/eia_clean.csv"
+    shell: "cp {input} {output}"
+
+rule clean_osint:
+    input: "data/interim/osint_ai_centers.csv"
+    output: "data/interim/osint_clean.csv"
+    shell: "python scripts/geocode_osint.py {input} {output}"
+
+rule integrate:
+    input:
+        osint="data/interim/osint_clean.csv",
+        egrid="data/interim/egrid_clean.csv",
+        eia="data/interim/eia_clean.csv"
+    output: "data/processed/integrated_data.csv"
+    shell: "python scripts/integrate_datasets.py {input.osint} {input.egrid} {input.eia} {output}"
