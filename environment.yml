@@ -1,0 +1,14 @@
+name: ai-grid-project
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pandas=2.2.2
+  - numpy=2.0.2
+  - matplotlib=3.9.0
+  - statsmodels=0.14.2
+  - pip
+  - pip:
+      - snakemake==8.16.0
+      - pyyaml==6.0.2
