@@ -1,154 +1,148 @@
-# Mapping U.S. AI Data Centers Against Power Grid Capacity
-**Final Project – Milestone 4 Submission**  
-University of Illinois Urbana-Champaign · IS 477: Data Management, Curation & Reproducibility  
-Release Tag: `final-project` · Archived with Zenodo DOI: Pending activation
+# Mapping U.S. AI Data Centers Against Power Grid Capacity  
+Final Project – Milestone 4  
+University of Illinois Urbana-Champaign · IS 477
 
 ---
 
-## 1. Project Summary
+## 1. Project Overview
 
-Artificial Intelligence infrastructure is expanding across the United States at an unprecedented pace. AI-optimized data centers—especially GPU mega-clusters used for model training and inference—now require tens to hundreds of megawatts each, often rivaling or exceeding the demand of entire towns. Meanwhile, renewable energy distribution and power grid limitations remain geographically uneven, and in some regions capacity growth is not keeping pace with compute expansion.
+AI-driven data centers have rapidly expanded in the United States within the last decade, reaching power demands measurable in hundreds of megawatts per facility. Such growth has raised concern regarding whether the electric grid can sustain accelerated infrastructure deployment, and whether siting decisions align with renewable capacity distribution.
 
-This project addresses a core sustainability question:
+This project integrates three datasets to assess spatial relationships between AI computational infrastructure and grid availability:
 
-> **Are U.S. AI data centers being built in regions with adequate energy capacity and renewable energy availability—or are we heading toward grid stress?**
-
-To answer this, we integrated three data sources:
-
-| Dataset | Purpose |
-|---|---|
-| **EPA eGRID 2023** | Regional fuel mix, emissions, renewable ratio |
-| **EIA Form 860 2024** | Generator capacity (MW), location, fuel source |
-| **OSINT AI Data Centers** | 246 scraped/verified AI-center buildouts across the U.S. |
-
-Using structured, government-verified electricity data alongside manually curated AI facility information, we constructed an end-to-end reproducible pipeline using **Snakemake**, documented provenance, archived data externally where required, performed quality assessment, and produced visual + statistical results.
-
-### Key Findings
-
-1. **AI expansion is concentrated in five power-dense clusters**: Northern Virginia (Ashburn), Dallas-Fort Worth, Phoenix, Atlanta corridor, and Central Oregon.
-2. **Renewable imbalance**: 41% of identified AI sites are located in fossil-dominant grid regions, despite renewable-dominant capacity existing elsewhere.
-3. **Capacity stress signals emerging**: 22 regions show AI demand trending above 15% of local generation capacity by 2027 based on projection simulation.
-4. **Historic trend**: From 2016→2025, AI compute facility count increased **~9.7×**, while renewable grid capacity increased only **1.8×** during the same period.
-
-The results suggest that current AI infrastructure location strategy is **cost- and latency-driven**, rather than sustainability-aligned. Without balancing siting decisions toward renewable capacity regions, grid strain will accelerate.
-
-This project not only visualizes this mismatch—it delivers a reproducible pipeline so that future datasets, new AI facilities, or changing grid conditions can be reevaluated with a single automated run.
-
----
-
-## 2. Data Profile
-
-### Data Source 1: EPA eGRID 2023
-- Format: XLSX → cleaned to CSV
-- Key fields used:
-  - Grid subregion
-  - Total generation (MWh)
-  - Renewable ratio (% solar/wind/hydro)
-  - Emissions intensity (lbs CO2/MWh)
-- License: Public Domain (US Federal)
-
-### Data Source 2: EIA Form 860 (2024)
-- Format: CSV bulk file
-- Fields extracted:
-  - Generator capacity (MW)
-  - Latitude/longitude
-  - Energy type (NG, coal, solar, wind, hydropower)
-- License: Public Domain
-
-### Data Source 3: OSINT Data Center Registry (compiled manually)
-- 246 facility records
-- Fields:
-  | company | address | lat/lon | MW | region | year_announced |
-- Data sensitivity:
-  Public information only. No restricted/private data included.
-
-### Acquisition Strategy
-- Government datasets downloaded manually, checksums verified
-- OSINT sources scraped and geocoded using Nominatim API
-- Metadata + licensing stored under `/docs/metadata_full.md`
-
-### Storage & File Organization
-```
-data/raw/           untouched input files
-data/interim/       partially cleaned
-data/processed/     final integrated datasets & summary aggregates
-```
-
-### FAIR Compliance
-| Requirement | Status |
-|---|---|
-| Findable | GitHub repo + DOI assigned |
-| Accessible | Public release, public datasets |
-| Interoperable | CSV, documented schema |
-| Reusable | MIT-licensed code + metadata dictionary |
-
----
-
-## 3. Data Quality Assessment
-
-All datasets underwent missing-value analysis, range validation, coordinate consistency checks, and outlier detection.
-
-### OSINT Missing Value Audit
-| Field | % Missing | Action |
+| Dataset | Source | Purpose |
 |---|---|---|
-| MW capacity | 12.3% | Imputed using regional medians |
-| Coordinates | 7.9% | 89% resolved via geocoding |
-| Region assignment | 4.1% | Assigned by spatial join with eGRID map |
+| EPA eGRID 2023 | U.S. Environmental Protection Agency | Regional generation, renewable share, emissions |
+| EIA Form 860 (2024) | U.S. Energy Information Administration | Generator capacity & fuel composition |
+| OSINT AI Data Centers Registry | Public web and corporate disclosures | Facility location, estimated AI power demand |
 
-### Validation Rules
-```
-MW must be 5–2000
-lat must be 10–60
-lon must be -130–-60
-```
-
-### Outlier Examples
-- “6000MW” corrected to 600MW
-- 14 duplicated announcements merged into single facility record
-
-### Result
-Final integrated dataset row count: **246**  
-Null fields after cleaning: **<1.5% overall**
+We developed a reproducible pipeline to acquire, clean, integrate, analyze, and visualize these datasets using Snakemake. All outputs are generated automatically from raw data and are documented with complete metadata, data dictionary, provenance, and reproducibility instructions.
 
 ---
 
-## 4. Findings & Visual Analysis
+## 2. Research Questions
 
-All figures are stored under `/results/figures/`.
-
-| Figure | File | Insight |
-|---|---|---|
-| U.S. AI Data Center Choropleth | `fig1_choropleth.png` | Five megapoles visible |
-| Capacity vs Renewable Scatter | `fig2_scatter_mw_vs_renewable.png` | Weak correlation (r = 0.34) |
-| Renewable/Non-renewable share | `fig5_renewable_vs_nonrenewable.png` | Fossil favored by siting |
-| Top 10 demand regions | `fig4_top10_power.png` | Ashburn VA > DFW TX > Phoenix AZ |
-| Heatmap by region | `fig3_heatmap.png` | Capacity strain hotspots |
-| Expansion Timeline | `fig6_timeseries_growth.png` | Growth curve exponential |
-
-The macro pattern is clear: **AI cluster formation > sustainability alignment**.
+1. Where are AI data centers geographically concentrated in the United States?  
+2. Does siting correlate with renewable energy availability or fossil-heavy grids?  
+3. What is the estimated share of regional grid capacity consumed by AI installations?  
+4. Are there emerging indicators of grid strain or sustainability misalignment?
 
 ---
 
-## 5. Future Work
-
-Future extensions include:
-
-- Predictive simulation of 2030-2040 grid load
-- Policy-aligned siting optimization models
-- International expansion comparison dataset
-- Live ingestion + streaming dashboard
-
-Our pipeline supports future growth because each component is modular.
-
----
-
-## 6. Reproduction Guide (Step-by-Step)
+## 3. Data Processing Workflow
 
 ```
-git clone <repo>
+raw → cleaning → standardization → integration → analytics → visualization
+```
+
+### Workflow Engine  
+All operations are executed via `workflows/Snakefile`, which ensures deterministic, topologically ordered execution. Running Snakemake produces:
+
+| Stage | Output |
+|---|---|
+| Cleaning | Standardized OSINT, eGRID, EIA tables |
+| Integration | Unified region-level & facility-level data |
+| Analysis | Regression summary, correlation statistics |
+| Visualization | Six publication-ready figures in /results/ |
+
+---
+
+## 4. Data Documentation (Required)
+
+✔ Data dictionary describing variable semantics → `docs/data_dictionary.md`  
+✔ Metadata file aligned to DataCite/Schema.org → `docs/metadata_full.md`  
+
+Documentation covers:
+- Variable ontology
+- Measurement scale
+- Units
+- Provenance lineage
+- License classification
+- Assumptions applied during harmonization
+
+---
+
+## 5. Data Quality Findings
+
+| Quality Issue | Resolution |
+|---|---|
+| Missing facility MW capacity | Regional-median imputation for ≤12.3% |
+| Inconsistent state labels | Normalized to USPS 2-letter codes |
+| Unrealistic numeric extremes | Winsorized or discarded beyond physical bounds |
+| Duplicate announcements | Deduplicated 14 facility records |
+| Missing coordinates | Recovered via geocoding when available |
+
+Final NA rate across key analytical variables: **<1.5%**
+
+---
+
+## 6. Integrated Datasets
+
+Generated by `scripts/integrate_datasets.py`:
+
+| File | Description |
+|---|---|
+| `data/processed/integrated_master_dataset.csv` | Facility-level dataset enriched with grid statistics |
+| `data/processed/summary_regional_statistics.csv` | Region-level load, capacity, emission & renewable summary |
+
+---
+
+## 7. Key Results
+
+1. Five AI megaclusters dominate U.S. deployment:
+   - Northern Virginia, Dallas–Fort Worth, Phoenix, Atlanta corridor, Central Oregon
+2. Renewable alignment is weak: correlation r = 0.34
+3. 22 regions exhibit ≥15% projected grid load from AI deployments
+4. Growth curve trend (2016→2025): **x9.7** increase in AI-facility count
+
+---
+
+## 8. Visual Output (Generated Programmatically)
+
+Location: `results/figures/`
+
+| File | Meaning |
+|---|---|
+| fig1_choropleth.png | AI regional MW distribution |
+| fig2_scatter_mw_vs_renewable.png | Renewable share correlation |
+| fig3_heatmap.png | Metric interaction matrix |
+| fig4_top10_power.png | Most power-dense deployment zones |
+| fig5_renewable_vs_nonrenewable.png | Load share by grid composition |
+| fig6_timeseries_growth.png | Year-over-year AI infrastructure increase |
+
+---
+
+## 9. Reproducibility Instructions
+
+```bash
+git clone <your repo>
+cd <repo>
 conda env create -f environment.yml
-snakemake --cores 4
+conda activate ai-grid-project
+snakemake --cores 2
 ```
 
-Outputs will appear in `/results/`.
+All results regenerate automatically into `/data/processed/` and `/results/`.
+
+Further reproduction details documented in `docs/reproduction_guide.md`.
+
+---
+
+## 10. Licensing & Ethical Handling
+
+| Component | License |
+|---|---|
+| Code & workflows | MIT (open reuse permitted) |
+| EPA & EIA source data | Public Domain (U.S. Government) |
+| OSINT registry | Public information; traceable to open sources |
+
+No proprietary or restricted data is stored or redistributed.
+
+---
+
+## 11. References
+
+All citations to datasets, software, and frameworks are included in `CITATIONS.md`.
+
+---
 
