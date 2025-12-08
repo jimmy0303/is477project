@@ -1,27 +1,90 @@
+# Snakefile
+# End-to-end workflow from raw data → cleaned → integrated → analyzed → visualized
+
+RAW_DIR      = "data/raw"
+INTERIM_DIR  = "data/interim"
+PROC_DIR     = "data/processed"
+RESULT_TAB   = "results/tables"
+RESULT_FIG   = "results/figures"
+
 rule all:
     input:
-        "data/processed/integrated_data.csv"
+        # final processed data
+        f"{PROC_DIR}/integrated_master_dataset.csv",
+        f"{PROC_DIR}/summary_regional_statistics.csv",
+        # analysis outputs
+        f"{RESULT_TAB}/regression_summary.txt",
+        f"{RESULT_TAB}/capacity_region_ranking.csv",
+        # all final figures
+        f"{RESULT_FIG}/fig1_choropleth.png",
+        f"{RESULT_FIG}/fig2_scatter_mw_vs_renewable.png",
+        f"{RESULT_FIG}/fig3_heatmap.png",
+        f"{RESULT_FIG}/fig4_top10_power.png",
+        f"{RESULT_FIG}/fig5_renewable_vs_nonrenewable.png",
+        f"{RESULT_FIG}/fig6_timeseries_growth.png"
 
-# Acquire data (manually downloaded for now)
-rule prepare_egrid:
-    input: "data/raw/egrid_2023/egrid.csv"
-    output: "data/interim/egrid_clean.csv"
-    shell: "cp {input} {output}"
-
-rule prepare_eia:
-    input: "data/raw/eia860_2024/eia860.csv"
-    output: "data/interim/eia_clean.csv"
-    shell: "cp {input} {output}"
+# Optional: check/download raw data and log checksums
+rule check_raw_data:
+    output:
+        "docs/provenance_download.log"
+    shell:
+        "python scripts/download_data.py"
 
 rule clean_osint:
-    input: "data/interim/osint_ai_centers.csv"
-    output: "data/interim/osint_clean.csv"
-    shell: "python scripts/geocode_osint.py {input} {output}"
+    input:
+        raw=f"{RAW_DIR}/osint_ai_centers_raw.csv"
+    output:
+        f"{INTERIM_DIR}/osint_ai_cleaned.csv"
+    shell:
+        "python scripts/clean_osint.py"
+
+rule clean_egrid:
+    input:
+        raw=f"{RAW_DIR}/egrid_2023.csv"
+    output:
+        f"{INTERIM_DIR}/egrid_cleaned.csv"
+    shell:
+        "python scripts/clean_egrid.py"
+
+rule clean_eia:
+    input:
+        raw=f"{RAW_DIR}/eia860_2024.csv"
+    output:
+        f"{INTERIM_DIR}/eia_cleaned.csv"
+    shell:
+        "python scripts/clean_eia.py"
 
 rule integrate:
     input:
-        osint="data/interim/osint_clean.csv",
-        egrid="data/interim/egrid_clean.csv",
-        eia="data/interim/eia_clean.csv"
-    output: "data/processed/integrated_data.csv"
-    shell: "python scripts/integrate_datasets.py {input.osint} {input.egrid} {input.eia} {output}"
+        osint=f"{INTERIM_DIR}/osint_ai_cleaned.csv",
+        egrid=f"{INTERIM_DIR}/egrid_cleaned.csv",
+        eia=f"{INTERIM_DIR}/eia_cleaned.csv"
+    output:
+        master=f"{PROC_DIR}/integrated_master_dataset.csv",
+        region=f"{PROC_DIR}/summary_regional_statistics.csv"
+    shell:
+        "python scripts/integrate_datasets.py"
+
+rule analytics:
+    input:
+        region=f"{PROC_DIR}/summary_regional_statistics.csv"
+    output:
+        corr=f"{RESULT_TAB}/correlation_matrix.csv",
+        reg=f"{RESULT_TAB}/regression_summary.txt",
+        rank=f"{RESULT_TAB}/capacity_region_ranking.csv"
+    shell:
+        "python scripts/analytics.py"
+
+rule visualizations:
+    input:
+        master=f"{PROC_DIR}/integrated_master_dataset.csv",
+        region=f"{PROC_DIR}/summary_regional_statistics.csv"
+    output:
+        f"{RESULT_FIG}/fig1_choropleth.png",
+        f"{RESULT_FIG}/fig2_scatter_mw_vs_renewable.png",
+        f"{RESULT_FIG}/fig3_heatmap.png",
+        f"{RESULT_FIG}/fig4_top10_power.png",
+        f"{RESULT_FIG}/fig5_renewable_vs_nonrenewable.png",
+        f"{RESULT_FIG}/fig6_timeseries_growth.png"
+    shell:
+        "python scripts/generate_visualizations.py"
