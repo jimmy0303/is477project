@@ -5,7 +5,7 @@ Release Tag: `final-project` · Archived with Zenodo DOI: Pending activation
 
 ---
 
-## 1. Project Summary (873 words)
+## 1. Project Summary
 
 Artificial Intelligence infrastructure is expanding across the United States at an unprecedented pace. AI-optimized data centers—especially GPU mega-clusters used for model training and inference—now require tens to hundreds of megawatts each, often rivaling or exceeding the demand of entire towns. Meanwhile, renewable energy distribution and power grid limitations remain geographically uneven, and in some regions capacity growth is not keeping pace with compute expansion.
 
@@ -36,7 +36,7 @@ This project not only visualizes this mismatch—it delivers a reproducible pipe
 
 ---
 
-## 2. Data Profile (965 words)
+## 2. Data Profile
 
 ### Data Source 1: EPA eGRID 2023
 - Format: XLSX → cleaned to CSV
@@ -84,7 +84,7 @@ data/processed/     final integrated datasets & summary aggregates
 
 ---
 
-## 3. Data Quality Assessment (704 words)
+## 3. Data Quality Assessment
 
 All datasets underwent missing-value analysis, range validation, coordinate consistency checks, and outlier detection.
 
@@ -112,7 +112,7 @@ Null fields after cleaning: **<1.5% overall**
 
 ---
 
-## 4. Findings & Visual Analysis (583 words)
+## 4. Findings & Visual Analysis
 
 All figures are stored under `/results/figures/`.
 
@@ -129,7 +129,7 @@ The macro pattern is clear: **AI cluster formation > sustainability alignment**.
 
 ---
 
-## 5. Future Work (576 words)
+## 5. Future Work
 
 Future extensions include:
 
