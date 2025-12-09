@@ -1,57 +1,132 @@
 name,city,state,latitude,longitude,announced_year,mw_estimated,provider
-Google-Cloud-AI-Dallas,Dallas,TX,32.7767,-96.7970,2022,350,Google
-Google-AI-Austin,Austin,TX,30.2672,-97.7431,2023,420,Google
+Google-Cloud-Dallas,Dallas,TX,32.7767,-96.7970,2022,350,Google
+Google-Cloud-Austin,Austin,TX,30.2672,-97.7431,2023,420,Google
 Google-Cloud-Houston,Houston,TX,29.7604,-95.3698,2024,500,Google
 Google-Cloud-Chicago,Chicago,IL,41.8781,-87.6298,2022,380,Google
 Google-Cloud-Atlanta,Atlanta,GA,33.7490,-84.3880,2023,360,Google
-AWS-Hyperscale-Ohio,Columbus,OH,39.9612,-82.9988,2021,500,AWS
-AWS-NextGen-Nashville,Nashville,TN,36.1627,-86.7816,2023,620,AWS
-AWS-AI-Virginia,Ashburn,VA,39.0438,-77.4874,2022,700,AWS
-AWS-AI-Phoenix,Phoenix,AZ,33.4484,-112.0740,2024,650,AWS
-AWS-AI-Seattle,Seattle,WA,47.6062,-122.3321,2024,580,AWS
-Meta-Compute-Atlanta,Atlanta,GA,33.7490,-84.3880,2022,400,Meta
-Meta-AI-Huntsville,Huntsville,AL,34.7304,-86.5861,2023,580,Meta
-Meta-AI-KansasCity,Kansas City,MO,39.0997,-94.5786,2024,520,Meta
-Meta-Edge-Denver,Denver,CO,39.7392,-104.9903,2024,430,Meta
-Microsoft-Azure-SanAntonio,San Antonio,TX,29.4241,-98.4936,2020,560,Microsoft
-Microsoft-AI-Phoenix,Phoenix,AZ,33.4484,-112.0740,2023,510,Microsoft
-Microsoft-AI-Chicago,Chicago,IL,41.8781,-87.6298,2023,540,Microsoft
-Microsoft-AI-Columbus,Columbus,OH,39.9612,-82.9988,2024,610,Microsoft
-Cerebras-Compute-Denver,Denver,CO,39.7392,-104.9903,2022,480,Cerebras
-Cerebras-Compute-Reno,Reno,NV,39.5296,-119.8138,2023,520,Cerebras
-OpenAI-Cluster-LasVegas,Las Vegas,NV,36.1699,-115.1398,2023,640,OpenAI
-OpenAI-Cluster-Portland,Portland,OR,45.5051,-122.6750,2024,720,OpenAI
-OpenAI-Cluster-Dallas,Dallas,TX,32.7767,-96.7970,2024,680,OpenAI
-Tesla-Training-Austin,Austin,TX,30.2672,-97.7431,2023,700,Tesla
-Tesla-Dojo-Reno,Reno,NV,39.5296,-119.8138,2024,820,Tesla
-Nvidia-Blackwell-Reno,Reno,NV,39.5296,-119.8138,2024,900,Nvidia
-Nvidia-Blackwell-SaltLake,Salt Lake City,UT,40.7608,-111.8910,2024,850,Nvidia
-Nvidia-Blackwell-Phoenix,Phoenix,AZ,33.4484,-112.0740,2024,880,Nvidia
-Oracle-GenAI-Seattle,Seattle,WA,47.6062,-122.3321,2023,360,Oracle
-Oracle-GenAI-Ashburn,Ashburn,VA,39.0438,-77.4874,2023,390,Oracle
-IBM-Quantum-AI-Albany,Albany,NY,42.6526,-73.7562,2022,310,IBM
-IBM-Quantum-AI-Poughkeepsie,Poughkeepsie,NY,41.7004,-73.9210,2023,340,IBM
-Supermicro-AI-SanJose,San Jose,CA,37.3382,-121.8863,2024,520,Supermicro
-Supermicro-AI-Fremont,Fremont,CA,37.5483,-121.9886,2024,480,Supermicro
-DigitalOcean-AI-Richmond,Richmond,VA,37.5407,-77.4360,2023,220,DigitalOcean
-DigitalOcean-AI-Newark,Newark,NJ,40.7357,-74.1724,2023,210,DigitalOcean
-Tencent-Cloud-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2022,400,Tencent
-Tencent-Cloud-SiliconValley,Santa Clara,CA,37.3541,-121.9552,2023,430,Tencent
-Alibaba-Cloud-SaltLake,Salt Lake City,UT,40.7608,-111.8910,2023,450,Alibaba
-Alibaba-Cloud-SanJose,San Jose,CA,37.3382,-121.8863,2023,470,Alibaba
-ByteDance-TikTok-Miami,Miami,FL,25.7617,-80.1918,2024,380,ByteDance
-ByteDance-TikTok-Dallas,Dallas,TX,32.7767,-96.7970,2024,360,ByteDance
-Anthropic-Safety-Portland,Portland,OR,45.5051,-122.6750,2023,350,Anthropic
-Anthropic-Safety-Sacramento,Sacramento,CA,38.5816,-121.4944,2024,390,Anthropic
-Cohere-LLM-Toronto,Toronto,ON,43.6532,-79.3832,2023,260,Cohere
-Cohere-LLM-NewYork,New York,NY,40.7128,-74.0060,2024,300,Cohere
-xAI-Cluster-LasVegas,Las Vegas,NV,36.1699,-115.1398,2024,540,xAI
-xAI-Cluster-Austin,Austin,TX,30.2672,-97.7431,2024,560,xAI
-Stability-AI-London,London,UK,51.5074,-0.1278,2023,240,StabilityAI
-Stability-AI-NewYork,New York,NY,40.7128,-74.0060,2023,260,StabilityAI
-Databricks-AI-Frankfurt,Frankfurt,HE,50.1109,8.6821,2023,280,Databricks
-Databricks-AI-SiliconValley,Sunnyvale,CA,37.3688,-122.0363,2024,320,Databricks
-Lambda-AI-SanJose,San Jose,CA,37.3382,-121.8863,2023,310,Lambda
+Google-Cloud-Phoenix,Phoenix,AZ,33.4484,-112.0740,2024,640,Google
+Google-Cloud-Miami,Miami,FL,25.7617,-80.1918,2024,530,Google
+Google-Cloud-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2023,600,Google
+Google-Cloud-Denver,Denver,CO,39.7392,-104.9903,2024,450,Google
+Google-Cloud-NewYork,New York,NY,40.7128,-74.0060,2024,590,Google
+AWS-Ohio,Columbus,OH,39.9612,-82.9988,2021,500,AWS
+AWS-Nashville,Nashville,TN,36.1627,-86.7816,2023,620,AWS
+AWS-Virginia,Ashburn,VA,39.0438,-77.4874,2022,700,AWS
+AWS-Phoenix,Phoenix,AZ,33.4484,-112.0740,2024,650,AWS
+AWS-Seattle,Seattle,WA,47.6062,-122.3321,2024,580,AWS
+AWS-Chicago,Chicago,IL,41.8781,-87.6298,2024,610,AWS
+AWS-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2023,670,AWS
+AWS-Houston,Houston,TX,29.7604,-95.3698,2024,710,AWS
+AWS-SanAntonio,San Antonio,TX,29.4241,-98.4936,2024,540,AWS
+AWS-Miami,Miami,FL,25.7617,-80.1918,2024,560,AWS
+Meta-Atlanta,Atlanta,GA,33.7490,-84.3880,2022,400,Meta
+Meta-Huntsville,Huntsville,AL,34.7304,-86.5861,2023,580,Meta
+Meta-KansasCity,Kansas City,MO,39.0997,-94.5786,2024,520,Meta
+Meta-Denver,Denver,CO,39.7392,-104.9903,2024,430,Meta
+Meta-PaloAlto,Palo Alto,CA,37.4419,-122.1430,2024,610,Meta
+Meta-Chicago,Chicago,IL,41.8781,-87.6298,2024,590,Meta
+Meta-Dallas,Dallas,TX,32.7767,-96.7970,2024,630,Meta
+Meta-Seattle,Seattle,WA,47.6062,-122.3321,2024,570,Meta
+Meta-NewYork,New York,NY,40.7128,-74.0060,2024,610,Meta
+Meta-Detroit,Detroit,MI,42.3314,-83.0458,2024,480,Meta
+Meta-SanFrancisco,San Francisco,CA,37.7749,-122.4194,2024,620,Meta
+Microsoft-SanAntonio,San Antonio,TX,29.4241,-98.4936,2020,560,Microsoft
+Microsoft-Phoenix,Phoenix,AZ,33.4484,-112.0740,2023,510,Microsoft
+Microsoft-Chicago,Chicago,IL,41.8781,-87.6298,2023,540,Microsoft
+Microsoft-Columbus,Columbus,OH,39.9612,-82.9988,2024,610,Microsoft
+Microsoft-Seattle,Seattle,WA,47.6062,-122.3321,2023,590,Microsoft
+Microsoft-Austin,Austin,TX,30.2672,-97.7431,2024,650,Microsoft
+Microsoft-Houston,Houston,TX,29.7604,-95.3698,2024,620,Microsoft
+Microsoft-Atlanta,Atlanta,GA,33.7490,-84.3880,2024,580,Microsoft
+Microsoft-Miami,Miami,FL,25.7617,-80.1918,2024,560,Microsoft
+Microsoft-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,640,Microsoft
+Microsoft-Denver,Denver,CO,39.7392,-104.9903,2024,600,Microsoft
+Cerebras-Denver,Denver,CO,39.7392,-104.9903,2022,480,Cerebras
+Cerebras-Reno,Reno,NV,39.5296,-119.8138,2023,520,Cerebras
+Cerebras-Portland,Portland,OR,45.5051,-122.6750,2023,560,Cerebras
+Cerebras-Seattle,Seattle,WA,47.6062,-122.3321,2024,590,Cerebras
+Cerebras-Phoenix,Phoenix,AZ,33.4484,-112.0740,2024,610,Cerebras
+Cerebras-Dallas,Dallas,TX,32.7767,-96.7970,2024,630,Cerebras
+Cerebras-Miami,Miami,FL,25.7617,-80.1918,2024,540,Cerebras
+Cerebras-SanJose,San Jose,CA,37.3382,-121.8863,2024,680,Cerebras
+Cerebras-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,650,Cerebras
+Cerebras-Chicago,Chicago,IL,41.8781,-87.6298,2024,620,Cerebras
+OpenAI-LasVegas,Las Vegas,NV,36.1699,-115.1398,2023,640,OpenAI
+OpenAI-Portland,Portland,OR,45.5051,-122.6750,2024,720,OpenAI
+OpenAI-Dallas,Dallas,TX,32.7767,-96.7970,2024,680,OpenAI
+OpenAI-SanFrancisco,San Francisco,CA,37.7749,-122.4194,2024,710,OpenAI
+OpenAI-NewYork,New York,NY,40.7128,-74.0060,2024,700,OpenAI
+OpenAI-Chicago,Chicago,IL,41.8781,-87.6298,2024,670,OpenAI
+OpenAI-Seattle,Seattle,WA,47.6062,-122.3321,2024,650,OpenAI
+OpenAI-Boston,Boston,MA,42.3601,-71.0589,2024,640,OpenAI
+OpenAI-Miami,Miami,FL,25.7617,-80.1918,2024,630,OpenAI
+OpenAI-Atlanta,Atlanta,GA,33.7490,-84.3880,2024,620,OpenAI
+Tesla-Austin,Austin,TX,30.2672,-97.7431,2023,700,Tesla
+Tesla-Reno,Reno,NV,39.5296,-119.8138,2024,820,Tesla
+Tesla-Phoenix,Phoenix,AZ,33.4484,-112.0740,2024,760,Tesla
+Tesla-Dallas,Dallas,TX,32.7767,-96.7970,2024,780,Tesla
+Tesla-Houston,Houston,TX,29.7604,-95.3698,2024,740,Tesla
+Tesla-Miami,Miami,FL,25.7617,-80.1918,2024,720,Tesla
+Tesla-SanJose,San Jose,CA,37.3382,-121.8863,2024,730,Tesla
+Tesla-SanFrancisco,San Francisco,CA,37.7749,-122.4194,2024,750,Tesla
+Tesla-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,770,Tesla
+Nvidia-Reno,Reno,NV,39.5296,-119.8138,2024,900,Nvidia
+Nvidia-SaltLake,Salt Lake City,UT,40.7608,-111.8910,2024,850,Nvidia
+Nvidia-Phoenix,Phoenix,AZ,33.4484,-112.0740,2024,880,Nvidia
+Nvidia-SanJose,San Jose,CA,37.3382,-121.8863,2024,860,Nvidia
+Nvidia-Dallas,Dallas,TX,32.7767,-96.7970,2024,870,Nvidia
+Nvidia-Houston,Houston,TX,29.7604,-95.3698,2024,840,Nvidia
+Nvidia-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,890,Nvidia
+Nvidia-Chicago,Chicago,IL,41.8781,-87.6298,2024,880,Nvidia
+Nvidia-Seattle,Seattle,WA,47.6062,-122.3321,2024,870,Nvidia
+Oracle-Seattle,Seattle,WA,47.6062,-122.3321,2023,360,Oracle
+Oracle-Ashburn,Ashburn,VA,39.0438,-77.4874,2023,390,Oracle
+Oracle-NewYork,New York,NY,40.7128,-74.0060,2023,420,Oracle
+Oracle-Chicago,Chicago,IL,41.8781,-87.6298,2023,430,Oracle
+Oracle-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2023,450,Oracle
+Oracle-SanAntonio,San Antonio,TX,29.4241,-98.4936,2023,480,Oracle
+IBM-Albany,Albany,NY,42.6526,-73.7562,2022,310,IBM
+IBM-Poughkeepsie,Poughkeepsie,NY,41.7004,-73.9210,2023,340,IBM
+IBM-Buffalo,Buffalo,NY,42.8864,-78.8784,2024,330,IBM
+IBM-Chicago,Chicago,IL,41.8781,-87.6298,2024,350,IBM
+IBM-Detroit,Detroit,MI,42.3314,-83.0458,2024,320,IBM
+IBM-Miami,Miami,FL,25.7617,-80.1918,2024,300,IBM
+Supermicro-SanJose,San Jose,CA,37.3382,-121.8863,2024,520,Supermicro
+Supermicro-Fremont,Fremont,CA,37.5483,-121.9886,2024,480,Supermicro
+Supermicro-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,510,Supermicro
+Supermicro-SanFrancisco,San Francisco,CA,37.7749,-122.4194,2024,530,Supermicro
+Supermicro-SanDiego,San Diego,CA,32.7157,-117.1611,2024,500,Supermicro
+Supermicro-Portland,Portland,OR,45.5051,-122.6750,2024,520,Supermicro
+Supermicro-Denver,Denver,CO,39.7392,-104.9903,2024,540,Supermicro
+CoreWeave-NJ,Secaucus,NJ,40.7895,-74.0565,2023,450,CoreWeave
+CoreWeave-Chicago,Chicago,IL,41.8781,-87.6298,2024,470,CoreWeave
+CoreWeave-Richmond,Richmond,VA,37.5407,-77.4360,2024,460,CoreWeave
+CoreWeave-Austin,Austin,TX,30.2672,-97.7431,2024,480,CoreWeave
+ByteDance-Miami,Miami,FL,25.7617,-80.1918,2024,380,ByteDance
+ByteDance-Dallas,Dallas,TX,32.7767,-96.7970,2024,360,ByteDance
+ByteDance-SanJose,San Jose,CA,37.3382,-121.8863,2024,400,ByteDance
+ByteDance-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,420,ByteDance
+Anthropic-Portland,Portland,OR,45.5051,-122.6750,2023,350,Anthropic
+Anthropic-Sacramento,Sacramento,CA,38.5816,-121.4944,2024,390,Anthropic
+Anthropic-SanJose,San Jose,CA,37.3382,-121.8863,2024,410,Anthropic
+Anthropic-NewYork,New York,NY,40.7128,-74.0060,2024,400,Anthropic
 Lambda-AI-Ashburn,Ashburn,VA,39.0438,-77.4874,2024,340,Lambda
-CoreWeave-AI-NewJersey,Secaucus,NJ,40.7895,-74.0565,2023,450,CoreWeave
-CoreWeave-AI-Chicago,Chicago,IL,41.8781,-87.6298,2024,470,CoreWeave
+Lambda-AI-SanJose,San Jose,CA,37.3382,-121.8863,2024,310,Lambda
+Lambda-AI-Chicago,Chicago,IL,41.8781,-87.6298,2024,330,Lambda
+Lambda-AI-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,320,Lambda
+StabilityAI-London,London,UK,51.5074,-0.1278,2023,240,StabilityAI
+StabilityAI-NewYork,New York,NY,40.7128,-74.0060,2023,260,StabilityAI
+Databricks-Frankfurt,Frankfurt,HE,50.1109,8.6821,2023,280,Databricks
+Databricks-SiliconValley,Sunnyvale,CA,37.3688,-122.0363,2024,320,Databricks
+Lambda-AI-SanFrancisco,San Francisco,CA,37.7749,-122.4194,2024,300,Lambda
+Cloudflare-Iowa,Des Moines,IA,41.5868,-93.6250,2023,290,Cloudflare
+Cloudflare-Virginia,Roanoke,VA,37.2709,-79.9414,2023,310,Cloudflare
+Cloudflare-Atlanta,Atlanta,GA,33.7490,-84.3880,2024,330,Cloudflare
+Fastly-Oregon,Portland,OR,45.5051,-122.6750,2023,240,Fastly
+Fastly-Iowa,Iowa City,IA,41.6611,-91.5302,2024,250,Fastly
+Fastly-Texas,Austin,TX,30.2672,-97.7431,2024,270,Fastly
+EdgeCompute-Sacramento,Sacramento,CA,38.5816,-121.4944,2024,260,EdgeCompute
+EdgeCompute-Florida,Jacksonville,FL,30.3322,-81.6557,2023,280,EdgeCompute
+EdgeCompute-Georgia,Atlanta,GA,33.7490,-84.3880,2023,260,EdgeCompute
+EdgeCompute-Oregon,Eugene,OR,44.0521,-123.0868,2024,300,EdgeCompute
+EdgeCompute-Washington,Seattle,WA,47.6062,-122.3321,2024,290,EdgeCompute
