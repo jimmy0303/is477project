@@ -1,0 +1,62 @@
+Assuming unrestricted shared filesystem usage.
+host: ╨звс
+Building DAG of jobs...
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+clean_osint        1
+figures            1
+integrate          1
+total              4
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Dec  8 19:25:26 2025]
+localrule clean_osint:
+    input: data/raw/osint_ai_centers_raw.csv
+    output: data/interim/osint_ai_cleaned.csv
+    jobid: 1
+    reason: Code has changed since last execution
+    resources: tmpdir=C:\Users\24366\AppData\Local\Temp
+[Mon Dec  8 19:25:26 2025]
+Finished jobid: 1 (Rule: clean_osint)
+1 of 4 steps (25%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Dec  8 19:25:26 2025]
+localrule integrate:
+    input: data/interim/osint_ai_cleaned.csv
+    output: data/processed/integrated_master_dataset.csv, data/processed/summary_regional_statistics.csv
+    jobid: 2
+    reason: Input files updated by another job: data/interim/osint_ai_cleaned.csv
+    resources: tmpdir=C:\Users\24366\AppData\Local\Temp
+[Mon Dec  8 19:25:26 2025]
+Finished jobid: 2 (Rule: integrate)
+2 of 4 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Dec  8 19:25:26 2025]
+localrule figures:
+    input: data/processed/integrated_master_dataset.csv
+    output: results/figures/fig1_choropleth.png, results/figures/fig2_scatter_mw_vs_renewable.png, results/figures/fig3_heatmap.png, results/figures/fig4_top10_power.png, results/figures/fig5_renewable_vs_nonrenewable.png, results/figures/fig6_timeseries_growth.png
+    jobid: 3
+    reason: Missing output files: results/figures/fig3_heatmap.png, results/figures/fig5_renewable_vs_nonrenewable.png, results/figures/fig1_choropleth.png, results/figures/fig2_scatter_mw_vs_renewable.png, results/figures/fig4_top10_power.png, results/figures/fig6_timeseries_growth.png; Input files updated by another job: data/processed/integrated_master_dataset.csv
+    resources: tmpdir=C:\Users\24366\AppData\Local\Temp
+[Mon Dec  8 19:25:28 2025]
+Finished jobid: 3 (Rule: figures)
+3 of 4 steps (75%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Dec  8 19:25:28 2025]
+localrule all:
+    input: data/interim/osint_ai_cleaned.csv, data/processed/integrated_master_dataset.csv, data/processed/summary_regional_statistics.csv, results/figures/fig1_choropleth.png, results/figures/fig2_scatter_mw_vs_renewable.png, results/figures/fig3_heatmap.png, results/figures/fig4_top10_power.png, results/figures/fig5_renewable_vs_nonrenewable.png, results/figures/fig6_timeseries_growth.png
+    jobid: 0
+    reason: Input files updated by another job: results/figures/fig3_heatmap.png, results/figures/fig5_renewable_vs_nonrenewable.png, data/processed/summary_regional_statistics.csv, results/figures/fig1_choropleth.png, results/figures/fig2_scatter_mw_vs_renewable.png, results/figures/fig4_top10_power.png, data/interim/osint_ai_cleaned.csv, results/figures/fig6_timeseries_growth.png, data/processed/integrated_master_dataset.csv
+    resources: tmpdir=C:\Users\24366\AppData\Local\Temp
+[Mon Dec  8 19:25:28 2025]
+Finished jobid: 0 (Rule: all)
+4 of 4 steps (100%) done
+Complete log(s): D:\Github\IS477 Final\is477project\workflows\.snakemake\log\2025-12-08T192526.264165.snakemake.log
