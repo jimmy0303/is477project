@@ -1,0 +1,3 @@
+ModuleNotFoundError in file "D:\Github\IS477 Final\is477project\workflows\Snakefile", line 8:
+No module named 'seaborn'
+  File "D:\Github\IS477 Final\is477project\workflows\Snakefile", line 8, in <module>

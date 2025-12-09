@@ -1,0 +1,74 @@
+Assuming unrestricted shared filesystem usage.
+host: ╨звс
+Building DAG of jobs...
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+clean_osint        1
+total              1
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Dec  8 19:01:20 2025]
+localrule clean_osint:
+    input: data/raw/osint_ai_centers_raw.csv
+    output: data/interim/osint_ai_cleaned.csv
+    jobid: 0
+    reason: Missing output files: data/interim/osint_ai_cleaned.csv
+    resources: tmpdir=C:\Users\24366\AppData\Local\Temp
+RuleException:
+CalledProcessError in file "D:\Github\IS477 Final\is477project\workflows\Snakefile", line 31:
+Command 'mkdir -p data/interim
+        
+        python - << 'EOF'
+import pandas as pd
+df = pd.read_csv("data/raw/osint_ai_centers_raw.csv")
+df.columns = df.columns.str.lower()
+df = df.dropna(subset=["latitude","longitude","mw_estimated"])
+df.to_csv("data/interim/osint_ai_cleaned.csv", index=False)
+EOF' returned non-zero exit status 1.
+[Mon Dec  8 19:01:20 2025]
+Error in rule clean_osint:
+    message: None
+    jobid: 0
+    input: data/raw/osint_ai_centers_raw.csv
+    output: data/interim/osint_ai_cleaned.csv
+    shell:
+        
+        mkdir -p data/interim
+        
+        python - << 'EOF'
+import pandas as pd
+df = pd.read_csv("data/raw/osint_ai_centers_raw.csv")
+df.columns = df.columns.str.lower()
+df = df.dropna(subset=["latitude","longitude","mw_estimated"])
+df.to_csv("data/interim/osint_ai_cleaned.csv", index=False)
+EOF
+        
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Mon Dec  8 19:01:20 2025]
+Error in rule clean_osint:
+    message: None
+    jobid: 0
+    input: data/raw/osint_ai_centers_raw.csv
+    output: data/interim/osint_ai_cleaned.csv
+    shell:
+        
+        mkdir -p data/interim
+        
+        python - << 'EOF'
+import pandas as pd
+df = pd.read_csv("data/raw/osint_ai_centers_raw.csv")
+df.columns = df.columns.str.lower()
+df = df.dropna(subset=["latitude","longitude","mw_estimated"])
+df.to_csv("data/interim/osint_ai_cleaned.csv", index=False)
+EOF
+        
+        (command exited with non-zero exit code)
+Complete log(s): D:\Github\IS477 Final\is477project\workflows\.snakemake\log\2025-12-08T190118.959129.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

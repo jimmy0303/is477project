@@ -1,0 +1,8 @@
+Assuming unrestricted shared filesystem usage.
+host: ╨звс
+Building DAG of jobs...
+MissingInputException in rule clean_osint in file "D:\Github\IS477 Final\is477project\workflows\Snakefile", line 33:
+Missing input files for rule clean_osint:
+    output: data/interim/osint_ai_cleaned.csv
+    affected files:
+        data/raw/osint_ai_centers_raw.csv
