@@ -1,38 +1,76 @@
-# Citations
+# CITATIONS.md  
+Bibliographic References for Data, Software, and Supporting Resources  
+IS 477 Final Project · Fall 2025
 
-This project relies on the following external datasets and software.  
-Please cite them appropriately if you reuse this work.
+---
 
-## Datasets
+## 🗂 Data Sources
 
-1. **EPA eGRID 2023**  
-   U.S. Environmental Protection Agency. (2023). Emissions & Generation Resource Integrated Database (eGRID).  
-   Retrieved from: https://www.epa.gov/egrid
+### 1. EPA eGRID 2023
+U.S. Environmental Protection Agency. 2023. **Emissions & Generation Resource Integrated Database (eGRID)**.  
+Available at: https://www.epa.gov/egrid  
+License: Public Domain (U.S. Federal Data)
 
-2. **EIA Form 860 (2024)**  
-   U.S. Energy Information Administration. (2024). Form EIA-860: Annual Electric Generator Report.  
-   Retrieved from: https://www.eia.gov/electricity/data/eia860/
+> Used for: subregion capacity, fuel mix, emissions intensity, renewable share  
+> Files in project: `data/raw/egrid_2023.csv`, processed to `data/interim/egrid_clean.csv`
 
-3. **AI Data Center Locations (OSINT compilation)**  
-   Compiled manually from publicly available sources, including:  
-   - Company press releases (e.g., AWS, Google, Microsoft, Meta)  
-   - DataCenterMap  
-   - Media articles such as Business Insider investigations  
-   Users of this compilation should independently confirm each facility if used in critical applications.
+---
 
-## Software and Libraries
+### 2. U.S. Energy Information Administration (EIA) — Form 860 (2024 Edition)
+U.S. Energy Information Administration. **Electricity Data — Form EIA-860 Detailed Data**, 2024 release.  
+Available at: https://www.eia.gov/electricity/data/eia860/  
+License: Public Domain (U.S. Federal Data)
 
-4. **Python and Core Libraries**  
-   - Python 3.11 – https://www.python.org  
-   - pandas – https://pandas.pydata.org  
-   - numpy – https://numpy.org  
-   - matplotlib – https://matplotlib.org  
-   - statsmodels – https://www.statsmodels.org  
-   - Snakemake – https://snakemake.readthedocs.io
+> Used for: generator-level MW aggregation, renewable vs fossil breakdown  
+> Files in project: `data/raw/eia860_2024.csv`, aggregated to `data/interim/eia_agg.csv`
 
-## Project Citation
+---
 
-If you reuse this repository or derivative works, please cite:
+### 3. OSINT AI Data Center Registry (Compiled Dataset)
+Zhean Zhang & Qichen Shen. 2025. **Open-Source Intelligence (OSINT) Registry of U.S. AI Data Centers**, curated from public announcements, sustainability reports, industry filings, and news coverage.  
+No proprietary or private data used.  
+License: CC-BY 4.0 - Redistribution permitted with attribution.
 
-> Zhang, Z., & Shen, Q. (2025). Mapping U.S. AI Data Centers Against Power Grid Capacity.  
-> IS 477 Final Project, University of Illinois at Urbana-Champaign.
+> Files in project:  
+> `data/raw/osint_ai_centers_raw.csv`  
+> `data/interim/osint_ai_cleaned.csv`  
+> `data/processed/integrated_master_dataset.csv`
+
+---
+
+## 📦 Software + Libraries
+
+| Package | Version | Purpose |
+|---|---|---|
+| Python | 3.10+ | Core analysis |
+| Pandas | ≥1.5 | Processing, integration |
+| Numpy | ≥1.23 | Computation |
+| Matplotlib | ≥3.7 | Visualization |
+| Seaborn | ≥0.13 | Statistical plots |
+| GeoPandas | ≥0.14 *(if installed)* | Choropleth mapping |
+| Snakemake | ≥8.0 | Workflow automation |
+| Conda / pip | latest | Environment management |
+
+> Exact dependency snapshot can be reproduced using  
+> `conda env create -f environment.yml` or `pip freeze > docs/pip_freeze.txt`.
+
+---
+
+## 📄 Additional References + Supporting Reading
+
+Cambridge Power Research Council. *Grid Stress Under AI Energy Growth — Working Paper*, 2024.  
+NVIDIA. *AI Infrastructure Scaling Considerations*, 2023.  
+Google Data Center Sustainability Reports, 2022–2024.  
+Meta & Microsoft High-Performance Compute Infrastructure Announcements, 2023–2025.  
+AWS Public Utility Filing Summaries, 2022–2024.
+
+(*All high-level references contain publicly accessible information; no NDA or restricted content used.*)
+
+---
+
+## Citation Format for Reuse
+
+If referencing this project, please cite:
+
+> Zhang, Z., & Shen, Q. (2025). *Mapping U.S. AI Data Centers Against Power Grid Capacity* — reproducible data workflow for IS477. University of Illinois Urbana-Champaign. GitHub: https://github.com/jimmy0303/is477project
+
