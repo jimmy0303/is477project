@@ -1,21 +1,132 @@
 name,city,state,latitude,longitude,announced_year,mw_estimated,provider,region
-Google-Cloud-AI-Dallas,Dallas,TX,32.7767,-96.797,2022,350,Google,NYISO
-Google-AI-Austin,Austin,TX,30.2672,-97.7431,2023,420,Google,NYISO
-AWS-Hyperscale-Ohio,Columbus,OH,39.9612,-82.9988,2021,500,AWS,CAISO
-AWS-NextGen-Nashville,Nashville,TN,36.1627,-86.7816,2023,620,AWS,MISO
-Meta-Compute-Atlanta,Atlanta,GA,33.749,-84.388,2022,400,Meta,NYISO
-Meta-AI-Huntsville,Huntsville,AL,34.7304,-86.5861,2023,580,Meta,NYISO
-Microsoft-Azure-SanAntonio,San Antonio,TX,29.4241,-98.4936,2020,560,Microsoft,NYISO
-Microsoft-AI-Phoenix,Phoenix,AZ,33.4484,-112.074,2023,510,Microsoft,ERCOT
-Cerebras-Compute-Denver,Denver,CO,39.7392,-104.9903,2022,480,Cerebras,SPP
-OpenAI-Cluster-LasVegas,Las Vegas,NV,36.1699,-115.1398,2023,640,OpenAI,MISO
-Tesla-Training-Austin,Austin,TX,30.2672,-97.7431,2023,700,Tesla,NYISO
-Nvidia-Blackwell-Reno,Reno,NV,39.5296,-119.8138,2024,900,Nvidia,MISO
-Oracle-GenAI-Seattle,Seattle,WA,47.6062,-122.3321,2023,360,Oracle,CAISO
-IBM-Quantum-AI-Albany,Albany,NY,42.6526,-73.7562,2022,310,IBM,SPP
-Supermicro-AI-SanJose,San Jose,CA,37.3382,-121.8863,2024,520,Supermicro,NYISO
-DigitalOcean-AI-Richmond,Richmond,VA,37.5407,-77.436,2023,220,DigitalOcean,CAISO
-Tencent-Cloud-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2022,400,Tencent,NYISO
-Alibaba-Cloud-SaltLake,Salt Lake City,UT,40.7608,-111.891,2023,450,Alibaba,NYISO
-ByteDance-TikTok-Miami,Miami,FL,25.7617,-80.1918,2024,380,ByteDance,SPP
-Anthropic-Safety-Portland,Portland,OR,45.5051,-122.675,2023,350,Anthropic,MISO
+Google-Cloud-Dallas,Dallas,TX,32.7767,-96.797,2022,350,Google,SPP
+Google-Cloud-Austin,Austin,TX,30.2672,-97.7431,2023,420,Google,SPP
+Google-Cloud-Houston,Houston,TX,29.7604,-95.3698,2024,500,Google,SPP
+Google-Cloud-Chicago,Chicago,IL,41.8781,-87.6298,2022,380,Google,ERCOT
+Google-Cloud-Atlanta,Atlanta,GA,33.749,-84.388,2023,360,Google,PJM
+Google-Cloud-Phoenix,Phoenix,AZ,33.4484,-112.074,2024,640,Google,PJM
+Google-Cloud-Miami,Miami,FL,25.7617,-80.1918,2024,530,Google,ERCOT
+Google-Cloud-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2023,600,Google,PJM
+Google-Cloud-Denver,Denver,CO,39.7392,-104.9903,2024,450,Google,NYISO
+Google-Cloud-NewYork,New York,NY,40.7128,-74.006,2024,590,Google,CAISO
+AWS-Ohio,Columbus,OH,39.9612,-82.9988,2021,500,AWS,SPP
+AWS-Nashville,Nashville,TN,36.1627,-86.7816,2023,620,AWS,MISO
+AWS-Virginia,Ashburn,VA,39.0438,-77.4874,2022,700,AWS,CAISO
+AWS-Phoenix,Phoenix,AZ,33.4484,-112.074,2024,650,AWS,PJM
+AWS-Seattle,Seattle,WA,47.6062,-122.3321,2024,580,AWS,SPP
+AWS-Chicago,Chicago,IL,41.8781,-87.6298,2024,610,AWS,ERCOT
+AWS-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2023,670,AWS,PJM
+AWS-Houston,Houston,TX,29.7604,-95.3698,2024,710,AWS,SPP
+AWS-SanAntonio,San Antonio,TX,29.4241,-98.4936,2024,540,AWS,SPP
+AWS-Miami,Miami,FL,25.7617,-80.1918,2024,560,AWS,ERCOT
+Meta-Atlanta,Atlanta,GA,33.749,-84.388,2022,400,Meta,PJM
+Meta-Huntsville,Huntsville,AL,34.7304,-86.5861,2023,580,Meta,SPP
+Meta-KansasCity,Kansas City,MO,39.0997,-94.5786,2024,520,Meta,ERCOT
+Meta-Denver,Denver,CO,39.7392,-104.9903,2024,430,Meta,NYISO
+Meta-PaloAlto,Palo Alto,CA,37.4419,-122.143,2024,610,Meta,PJM
+Meta-Chicago,Chicago,IL,41.8781,-87.6298,2024,590,Meta,ERCOT
+Meta-Dallas,Dallas,TX,32.7767,-96.797,2024,630,Meta,SPP
+Meta-Seattle,Seattle,WA,47.6062,-122.3321,2024,570,Meta,SPP
+Meta-NewYork,New York,NY,40.7128,-74.006,2024,610,Meta,CAISO
+Meta-Detroit,Detroit,MI,42.3314,-83.0458,2024,480,Meta,SPP
+Meta-SanFrancisco,San Francisco,CA,37.7749,-122.4194,2024,620,Meta,PJM
+Microsoft-SanAntonio,San Antonio,TX,29.4241,-98.4936,2020,560,Microsoft,SPP
+Microsoft-Phoenix,Phoenix,AZ,33.4484,-112.074,2023,510,Microsoft,PJM
+Microsoft-Chicago,Chicago,IL,41.8781,-87.6298,2023,540,Microsoft,ERCOT
+Microsoft-Columbus,Columbus,OH,39.9612,-82.9988,2024,610,Microsoft,SPP
+Microsoft-Seattle,Seattle,WA,47.6062,-122.3321,2023,590,Microsoft,SPP
+Microsoft-Austin,Austin,TX,30.2672,-97.7431,2024,650,Microsoft,SPP
+Microsoft-Houston,Houston,TX,29.7604,-95.3698,2024,620,Microsoft,SPP
+Microsoft-Atlanta,Atlanta,GA,33.749,-84.388,2024,580,Microsoft,PJM
+Microsoft-Miami,Miami,FL,25.7617,-80.1918,2024,560,Microsoft,ERCOT
+Microsoft-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,640,Microsoft,PJM
+Microsoft-Denver,Denver,CO,39.7392,-104.9903,2024,600,Microsoft,NYISO
+Cerebras-Denver,Denver,CO,39.7392,-104.9903,2022,480,Cerebras,NYISO
+Cerebras-Reno,Reno,NV,39.5296,-119.8138,2023,520,Cerebras,ERCOT
+Cerebras-Portland,Portland,OR,45.5051,-122.675,2023,560,Cerebras,ERCOT
+Cerebras-Seattle,Seattle,WA,47.6062,-122.3321,2024,590,Cerebras,SPP
+Cerebras-Phoenix,Phoenix,AZ,33.4484,-112.074,2024,610,Cerebras,PJM
+Cerebras-Dallas,Dallas,TX,32.7767,-96.797,2024,630,Cerebras,SPP
+Cerebras-Miami,Miami,FL,25.7617,-80.1918,2024,540,Cerebras,ERCOT
+Cerebras-SanJose,San Jose,CA,37.3382,-121.8863,2024,680,Cerebras,PJM
+Cerebras-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,650,Cerebras,PJM
+Cerebras-Chicago,Chicago,IL,41.8781,-87.6298,2024,620,Cerebras,ERCOT
+OpenAI-LasVegas,Las Vegas,NV,36.1699,-115.1398,2023,640,OpenAI,ERCOT
+OpenAI-Portland,Portland,OR,45.5051,-122.675,2024,720,OpenAI,ERCOT
+OpenAI-Dallas,Dallas,TX,32.7767,-96.797,2024,680,OpenAI,SPP
+OpenAI-SanFrancisco,San Francisco,CA,37.7749,-122.4194,2024,710,OpenAI,PJM
+OpenAI-NewYork,New York,NY,40.7128,-74.006,2024,700,OpenAI,CAISO
+OpenAI-Chicago,Chicago,IL,41.8781,-87.6298,2024,670,OpenAI,ERCOT
+OpenAI-Seattle,Seattle,WA,47.6062,-122.3321,2024,650,OpenAI,SPP
+OpenAI-Boston,Boston,MA,42.3601,-71.0589,2024,640,OpenAI,MISO
+OpenAI-Miami,Miami,FL,25.7617,-80.1918,2024,630,OpenAI,ERCOT
+OpenAI-Atlanta,Atlanta,GA,33.749,-84.388,2024,620,OpenAI,PJM
+Tesla-Austin,Austin,TX,30.2672,-97.7431,2023,700,Tesla,SPP
+Tesla-Reno,Reno,NV,39.5296,-119.8138,2024,820,Tesla,ERCOT
+Tesla-Phoenix,Phoenix,AZ,33.4484,-112.074,2024,760,Tesla,PJM
+Tesla-Dallas,Dallas,TX,32.7767,-96.797,2024,780,Tesla,SPP
+Tesla-Houston,Houston,TX,29.7604,-95.3698,2024,740,Tesla,SPP
+Tesla-Miami,Miami,FL,25.7617,-80.1918,2024,720,Tesla,ERCOT
+Tesla-SanJose,San Jose,CA,37.3382,-121.8863,2024,730,Tesla,PJM
+Tesla-SanFrancisco,San Francisco,CA,37.7749,-122.4194,2024,750,Tesla,PJM
+Tesla-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,770,Tesla,PJM
+Nvidia-Reno,Reno,NV,39.5296,-119.8138,2024,900,Nvidia,ERCOT
+Nvidia-SaltLake,Salt Lake City,UT,40.7608,-111.891,2024,850,Nvidia,SPP
+Nvidia-Phoenix,Phoenix,AZ,33.4484,-112.074,2024,880,Nvidia,PJM
+Nvidia-SanJose,San Jose,CA,37.3382,-121.8863,2024,860,Nvidia,PJM
+Nvidia-Dallas,Dallas,TX,32.7767,-96.797,2024,870,Nvidia,SPP
+Nvidia-Houston,Houston,TX,29.7604,-95.3698,2024,840,Nvidia,SPP
+Nvidia-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,890,Nvidia,PJM
+Nvidia-Chicago,Chicago,IL,41.8781,-87.6298,2024,880,Nvidia,ERCOT
+Nvidia-Seattle,Seattle,WA,47.6062,-122.3321,2024,870,Nvidia,SPP
+Oracle-Seattle,Seattle,WA,47.6062,-122.3321,2023,360,Oracle,SPP
+Oracle-Ashburn,Ashburn,VA,39.0438,-77.4874,2023,390,Oracle,CAISO
+Oracle-NewYork,New York,NY,40.7128,-74.006,2023,420,Oracle,CAISO
+Oracle-Chicago,Chicago,IL,41.8781,-87.6298,2023,430,Oracle,ERCOT
+Oracle-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2023,450,Oracle,PJM
+Oracle-SanAntonio,San Antonio,TX,29.4241,-98.4936,2023,480,Oracle,SPP
+IBM-Albany,Albany,NY,42.6526,-73.7562,2022,310,IBM,CAISO
+IBM-Poughkeepsie,Poughkeepsie,NY,41.7004,-73.921,2023,340,IBM,CAISO
+IBM-Buffalo,Buffalo,NY,42.8864,-78.8784,2024,330,IBM,CAISO
+IBM-Chicago,Chicago,IL,41.8781,-87.6298,2024,350,IBM,ERCOT
+IBM-Detroit,Detroit,MI,42.3314,-83.0458,2024,320,IBM,SPP
+IBM-Miami,Miami,FL,25.7617,-80.1918,2024,300,IBM,ERCOT
+Supermicro-SanJose,San Jose,CA,37.3382,-121.8863,2024,520,Supermicro,PJM
+Supermicro-Fremont,Fremont,CA,37.5483,-121.9886,2024,480,Supermicro,PJM
+Supermicro-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,510,Supermicro,PJM
+Supermicro-SanFrancisco,San Francisco,CA,37.7749,-122.4194,2024,530,Supermicro,PJM
+Supermicro-SanDiego,San Diego,CA,32.7157,-117.1611,2024,500,Supermicro,PJM
+Supermicro-Portland,Portland,OR,45.5051,-122.675,2024,520,Supermicro,ERCOT
+Supermicro-Denver,Denver,CO,39.7392,-104.9903,2024,540,Supermicro,NYISO
+CoreWeave-NJ,Secaucus,NJ,40.7895,-74.0565,2023,450,CoreWeave,CAISO
+CoreWeave-Chicago,Chicago,IL,41.8781,-87.6298,2024,470,CoreWeave,ERCOT
+CoreWeave-Richmond,Richmond,VA,37.5407,-77.436,2024,460,CoreWeave,CAISO
+CoreWeave-Austin,Austin,TX,30.2672,-97.7431,2024,480,CoreWeave,SPP
+ByteDance-Miami,Miami,FL,25.7617,-80.1918,2024,380,ByteDance,ERCOT
+ByteDance-Dallas,Dallas,TX,32.7767,-96.797,2024,360,ByteDance,SPP
+ByteDance-SanJose,San Jose,CA,37.3382,-121.8863,2024,400,ByteDance,PJM
+ByteDance-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,420,ByteDance,PJM
+Anthropic-Portland,Portland,OR,45.5051,-122.675,2023,350,Anthropic,ERCOT
+Anthropic-Sacramento,Sacramento,CA,38.5816,-121.4944,2024,390,Anthropic,PJM
+Anthropic-SanJose,San Jose,CA,37.3382,-121.8863,2024,410,Anthropic,PJM
+Anthropic-NewYork,New York,NY,40.7128,-74.006,2024,400,Anthropic,CAISO
+Lambda-AI-Ashburn,Ashburn,VA,39.0438,-77.4874,2024,340,Lambda,CAISO
+Lambda-AI-SanJose,San Jose,CA,37.3382,-121.8863,2024,310,Lambda,PJM
+Lambda-AI-Chicago,Chicago,IL,41.8781,-87.6298,2024,330,Lambda,ERCOT
+Lambda-AI-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2024,320,Lambda,PJM
+StabilityAI-London,London,UK,51.5074,-0.1278,2023,240,StabilityAI,CAISO
+StabilityAI-NewYork,New York,NY,40.7128,-74.006,2023,260,StabilityAI,CAISO
+Databricks-Frankfurt,Frankfurt,HE,50.1109,8.6821,2023,280,Databricks,SPP
+Databricks-SiliconValley,Sunnyvale,CA,37.3688,-122.0363,2024,320,Databricks,PJM
+Lambda-AI-SanFrancisco,San Francisco,CA,37.7749,-122.4194,2024,300,Lambda,PJM
+Cloudflare-Iowa,Des Moines,IA,41.5868,-93.625,2023,290,Cloudflare,ERCOT
+Cloudflare-Virginia,Roanoke,VA,37.2709,-79.9414,2023,310,Cloudflare,CAISO
+Cloudflare-Atlanta,Atlanta,GA,33.749,-84.388,2024,330,Cloudflare,PJM
+Fastly-Oregon,Portland,OR,45.5051,-122.675,2023,240,Fastly,ERCOT
+Fastly-Iowa,Iowa City,IA,41.6611,-91.5302,2024,250,Fastly,ERCOT
+Fastly-Texas,Austin,TX,30.2672,-97.7431,2024,270,Fastly,SPP
+EdgeCompute-Sacramento,Sacramento,CA,38.5816,-121.4944,2024,260,EdgeCompute,PJM
+EdgeCompute-Florida,Jacksonville,FL,30.3322,-81.6557,2023,280,EdgeCompute,ERCOT
+EdgeCompute-Georgia,Atlanta,GA,33.749,-84.388,2023,260,EdgeCompute,PJM
+EdgeCompute-Oregon,Eugene,OR,44.0521,-123.0868,2024,300,EdgeCompute,ERCOT
+EdgeCompute-Washington,Seattle,WA,47.6062,-122.3321,2024,290,EdgeCompute,SPP
