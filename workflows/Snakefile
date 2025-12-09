@@ -1,11 +1,9 @@
 ###########################################
 # Final Snakemake Workflow for IS477 Project
-# Generates Processed Data + All 6 Figures
+# Windows-compatible (no bash syntax)
 ###########################################
 
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
+from pathlib import Path
 import os
 
 RAW_DATA = "data/raw/osint_ai_centers_raw.csv"
@@ -21,130 +19,154 @@ FIG6 = "results/figures/fig6_timeseries_growth.png"
 
 
 ###########################################
-# 1) RULE — CLEAN + STANDARDIZE RAW DATA
-###########################################
-
-rule clean_osint:
-    input: RAW_DATA
-    output: "data/interim/osint_ai_cleaned.csv"
-    shell:
-        r"""
-        mkdir -p data/interim
-        
-        python - << 'EOF'
-import pandas as pd
-df = pd.read_csv("{input}")
-df.columns = df.columns.str.lower()
-df = df.dropna(subset=["latitude","longitude","mw_estimated"])
-df.to_csv("{output}", index=False)
-EOF
-        """
-
-
-###########################################
-# 2) RULE — INTEGRATE (SIMULATED GRID DATA)
-###########################################
-
-rule integrate:
-    input: "data/interim/osint_ai_cleaned.csv"
-    output: PROCESSED, SUMMARY
-    shell:
-        r"""
-        mkdir -p data/processed
-        
-        python - << 'EOF'
-import pandas as pd
-
-# load OSINT dataset
-df = pd.read_csv("{input}")
-
-# Simulate grid region assignments
-regions = ["ERCOT","PJM","MISO","CAISO","NYISO","SPP"]
-df["region"] = df["state"].apply(lambda s: regions[hash(s) % len(regions)])
-
-# Generate summary
-summary = df.groupby("region")["mw_estimated"].agg(["count","sum","mean"]).reset_index()
-
-df.to_csv("{PROCESSED}", index=False)
-summary.to_csv("{SUMMARY}", index=False)
-EOF
-        """
-
-
-###########################################
-# 3) RULE — GENERATE 6 VISUALIZATION FIGURES
-###########################################
-
-rule figures:
-    input: PROCESSED
-    output: FIG1,FIG2,FIG3,FIG4,FIG5,FIG6
-    shell:
-        r"""
-        mkdir -p results/figures
-        
-        python - << 'EOF'
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
-
-df = pd.read_csv("{input}")
-
-# --- FIGURE 1 Choropleth (simulated)
-plt.figure(figsize=(10,6))
-sns.countplot(x="region", data=df)
-plt.title("Facility Count per Grid Region")
-plt.ylabel("Count")
-plt.xlabel("Grid Region")
-plt.savefig("{FIG1}", dpi=300)
-plt.close()
-
-# --- FIGURE 2 scatter
-plt.figure(figsize=(8,6))
-sns.scatterplot(data=df, x="announced_year", y="mw_estimated", hue="region")
-plt.title("MW vs Year Announced")
-plt.savefig("{FIG2}", dpi=300)
-plt.close()
-
-# --- FIGURE 3 heatmap
-pivot = df.pivot_table(values="mw_estimated", index="region", columns="announced_year", aggfunc="mean")
-sns.heatmap(pivot, cmap="Blues")
-plt.title("Heatmap: Avg MW by Region/Year")
-plt.savefig("{FIG3}", dpi=300)
-plt.close()
-
-# --- FIGURE 4 Top 10
-top10 = df.sort_values("mw_estimated", ascending=False).head(10)
-plt.figure(figsize=(8,6))
-sns.barplot(x=top10["mw_estimated"], y=top10["name"])
-plt.title("Top 10 Highest MW Data Centers")
-plt.savefig("{FIG4}", dpi=300)
-plt.close()
-
-# --- FIGURE 5 Renewable vs Nonrenewable (mocked split)
-df["renewable_share"] = np.random.uniform(0.2,0.9,len(df))
-plt.figure(figsize=(8,6))
-sns.histplot(df["renewable_share"], kde=True)
-plt.title("Distribution of Renewable Availability")
-plt.savefig("{FIG5}", dpi=300)
-plt.close()
-
-# --- FIGURE 6 Timeseries Growth
-ts = df.groupby("announced_year")["mw_estimated"].sum().reset_index()
-plt.plot(ts["announced_year"], ts["mw_estimated"], marker="o")
-plt.title("Total AI Power Demand Over Time")
-plt.savefig("{FIG6}", dpi=300)
-plt.close()
-
-EOF
-        """
-
-
-###########################################
-# 4) FINAL TARGET
+# 0) FINAL TARGET
 ###########################################
 
 rule all:
     input:
-        PROCESSED, SUMMARY,
+        PROCESSED,
+        SUMMARY,
         FIG1, FIG2, FIG3, FIG4, FIG5, FIG6
+
+
+###########################################
+# 1) CLEAN OSINT RAW DATA
+###########################################
+
+rule clean_osint:
+    input:
+        RAW_DATA
+    output:
+        "data/interim/osint_ai_cleaned.csv"
+    run:
+        import pandas as pd
+        out_path = Path(output[0])
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+
+        df = pd.read_csv(input[0])
+        df.columns = df.columns.str.lower()
+        df = df.dropna(subset=["latitude", "longitude", "mw_estimated"])
+        df.to_csv(out_path, index=False)
+
+
+###########################################
+# 2) INTEGRATE WITH SIMULATED GRID REGIONS
+###########################################
+
+rule integrate:
+    input:
+        "data/interim/osint_ai_cleaned.csv"
+    output:
+        PROCESSED,
+        SUMMARY
+    run:
+        import pandas as pd
+
+        processed_path = Path(output[0])
+        summary_path = Path(output[1])
+        processed_path.parent.mkdir(parents=True, exist_ok=True)
+
+        df = pd.read_csv(input[0])
+
+        # Simulate grid regions by hashing state code
+        regions = ["ERCOT", "PJM", "MISO", "CAISO", "NYISO", "SPP"]
+        df["region"] = df["state"].astype(str).apply(
+            lambda s: regions[hash(s) % len(regions)]
+        )
+
+        summary = (
+            df.groupby("region")["mw_estimated"]
+            .agg(["count", "sum", "mean"])
+            .reset_index()
+        )
+
+        df.to_csv(processed_path, index=False)
+        summary.to_csv(summary_path, index=False)
+
+
+###########################################
+# 3) GENERATE 6 FIGURES
+###########################################
+
+rule figures:
+    input:
+        PROCESSED
+    output:
+        FIG1, FIG2, FIG3, FIG4, FIG5, FIG6
+    run:
+        import pandas as pd
+        import matplotlib.pyplot as plt
+        import seaborn as sns
+        import numpy as np
+        from pathlib import Path
+
+        df = pd.read_csv(input[0])
+
+        out_paths = [Path(p) for p in output]
+        for p in out_paths:
+            p.parent.mkdir(parents=True, exist_ok=True)
+
+        # FIGURE 1: Count per region (bar, as pseudo-choropleth)
+        plt.figure(figsize=(10, 6))
+        sns.countplot(x="region", data=df)
+        plt.title("Facility Count per Grid Region")
+        plt.ylabel("Count")
+        plt.xlabel("Grid Region")
+        plt.tight_layout()
+        plt.savefig(output[0], dpi=300)
+        plt.close()
+
+        # FIGURE 2: MW vs announced year, colored by region
+        plt.figure(figsize=(8, 6))
+        sns.scatterplot(data=df, x="announced_year", y="mw_estimated", hue="region")
+        plt.title("MW vs Year Announced")
+        plt.tight_layout()
+        plt.savefig(output[1], dpi=300)
+        plt.close()
+
+        # FIGURE 3: Heatmap of avg MW by region/year
+        pivot = df.pivot_table(
+            values="mw_estimated",
+            index="region",
+            columns="announced_year",
+            aggfunc="mean",
+        )
+        plt.figure(figsize=(8, 6))
+        sns.heatmap(pivot, cmap="Blues", annot=False)
+        plt.title("Heatmap: Avg MW by Region and Year")
+        plt.tight_layout()
+        plt.savefig(output[2], dpi=300)
+        plt.close()
+
+        # FIGURE 4: Top 10 by MW
+        top10 = df.sort_values("mw_estimated", ascending=False).head(10)
+        plt.figure(figsize=(8, 6))
+        sns.barplot(x="mw_estimated", y="name", data=top10)
+        plt.title("Top 10 Highest MW Data Centers")
+        plt.xlabel("Estimated MW")
+        plt.ylabel("Facility")
+        plt.tight_layout()
+        plt.savefig(output[3], dpi=300)
+        plt.close()
+
+        # FIGURE 5: Distribution of simulated renewable share
+        np.random.seed(42)
+        df["renewable_share"] = np.random.uniform(0.2, 0.9, len(df))
+        plt.figure(figsize=(8, 6))
+        sns.histplot(df["renewable_share"], kde=True)
+        plt.title("Distribution of Renewable Availability (Simulated)")
+        plt.xlabel("Renewable Share")
+        plt.tight_layout()
+        plt.savefig(output[4], dpi=300)
+        plt.close()
+
+        # FIGURE 6: Time series of total MW per year
+        ts = df.groupby("announced_year")["mw_estimated"].sum().reset_index()
+        plt.figure(figsize=(8, 6))
+        plt.plot(ts["announced_year"], ts["mw_estimated"], marker="o")
+        plt.title("Total AI Power Demand Over Time")
+        plt.xlabel("Year Announced")
+        plt.ylabel("Total Estimated MW")
+        plt.tight_layout()
+        plt.savefig(output[5], dpi=300)
+        plt.close()
