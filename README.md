@@ -305,7 +305,7 @@ Our current study focuses on the U.S., largely because eGRID and EIA provide sta
 
 This section describes how another person can reproduce our analysis or at least inspect the results.
 
-### Option A: Use Box Outputs (No Workflow Execution Required)  
+### Use Box Outputs (No Workflow Execution Required)  
 
 We provide Box folders containing the final processed datasets and figures. To use this option:
 
@@ -329,13 +329,7 @@ We provide Box folders containing the final processed datasets and figures. To u
    without running any code.  
    This is the fastest evaluation path for grading.
 
----
 
-### Option B: Full Workflow Execution
-
-If you wish to reproduce the entire project from raw source files:
-
-```bash
 git clone https://github.com/jimmy0303/is477project
 cd is477project
 conda env create -f environment.yml
