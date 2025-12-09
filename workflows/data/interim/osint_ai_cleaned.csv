@@ -1,0 +1,21 @@
+name,city,state,latitude,longitude,announced_year,mw_estimated,provider
+Google-Cloud-AI-Dallas,Dallas,TX,32.7767,-96.797,2022,350,Google
+Google-AI-Austin,Austin,TX,30.2672,-97.7431,2023,420,Google
+AWS-Hyperscale-Ohio,Columbus,OH,39.9612,-82.9988,2021,500,AWS
+AWS-NextGen-Nashville,Nashville,TN,36.1627,-86.7816,2023,620,AWS
+Meta-Compute-Atlanta,Atlanta,GA,33.749,-84.388,2022,400,Meta
+Meta-AI-Huntsville,Huntsville,AL,34.7304,-86.5861,2023,580,Meta
+Microsoft-Azure-SanAntonio,San Antonio,TX,29.4241,-98.4936,2020,560,Microsoft
+Microsoft-AI-Phoenix,Phoenix,AZ,33.4484,-112.074,2023,510,Microsoft
+Cerebras-Compute-Denver,Denver,CO,39.7392,-104.9903,2022,480,Cerebras
+OpenAI-Cluster-LasVegas,Las Vegas,NV,36.1699,-115.1398,2023,640,OpenAI
+Tesla-Training-Austin,Austin,TX,30.2672,-97.7431,2023,700,Tesla
+Nvidia-Blackwell-Reno,Reno,NV,39.5296,-119.8138,2024,900,Nvidia
+Oracle-GenAI-Seattle,Seattle,WA,47.6062,-122.3321,2023,360,Oracle
+IBM-Quantum-AI-Albany,Albany,NY,42.6526,-73.7562,2022,310,IBM
+Supermicro-AI-SanJose,San Jose,CA,37.3382,-121.8863,2024,520,Supermicro
+DigitalOcean-AI-Richmond,Richmond,VA,37.5407,-77.436,2023,220,DigitalOcean
+Tencent-Cloud-LosAngeles,Los Angeles,CA,34.0522,-118.2437,2022,400,Tencent
+Alibaba-Cloud-SaltLake,Salt Lake City,UT,40.7608,-111.891,2023,450,Alibaba
+ByteDance-TikTok-Miami,Miami,FL,25.7617,-80.1918,2024,380,ByteDance
+Anthropic-Safety-Portland,Portland,OR,45.5051,-122.675,2023,350,Anthropic
